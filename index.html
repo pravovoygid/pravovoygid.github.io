@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Правовой гид — понятный справочник по российскому законодательству.">
+<title>Правовой гид — юридический помощник</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0e0d;
+  --bg-2:#0f1311;
+  --surface:#121715;
+  --surface-2:#171d1a;
+  --fg:#e9ece9;
+  --fg-2:#9aa39d;
+  --fg-3:#5f6763;
+  --line:#1e2422;
+  --line-2:#2a322f;
+  --accent:#25a244;
+  --accent-2:#39c05a;
+  --accent-soft:rgba(37,162,68,.12);
+  --danger:#e05a5a;
+  --radius:12px;
+  --radius-lg:16px;
+}
+[data-theme="light"]{
+  --bg:#f6f7f6;
+  --bg-2:#f0f2f0;
+  --surface:#ffffff;
+  --surface-2:#f3f5f3;
+  --fg:#111512;
+  --fg-2:#4a5350;
+  --fg-3:#8a938f;
+  --line:#e3e7e4;
+  --line-2:#d2d8d4;
+  --accent:#1e8f3a;
+  --accent-2:#25a244;
+  --accent-soft:rgba(30,143,58,.1);
+  --danger:#c0392b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font:15px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--fg);
+  -webkit-font-smoothing:antialiased;
+  transition:background .2s,color .2s;
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit}
+button{background:none;border:none;cursor:pointer}
+.wrap{width:min(920px,calc(100% - 40px));margin-inline:auto}
+
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--bg) 85%,transparent);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;gap:24px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-size:.92rem;font-weight:600;letter-spacing:-.01em}
+.brand .mark{
+  width:24px;height:24px;border-radius:7px;
+  background:var(--accent);color:#04150a;
+  display:grid;place-items:center;flex:none;
+}
+.brand .mark svg{width:13px;height:13px}
+.nav .links{display:flex;gap:4px;margin-left:12px}
+.nav .links a{
+  font-size:.86rem;color:var(--fg-2);padding:7px 12px;border-radius:8px;
+  transition:background .15s,color .15s;
+}
+.nav .links a:hover{background:var(--surface);color:var(--fg)}
+.nav .spacer{flex:1}
+.theme{
+  width:34px;height:34px;border-radius:9px;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--fg-2);
+  transition:border-color .15s,color .15s,background .15s;
+}
+.theme:hover{border-color:var(--line-2);color:var(--fg);background:var(--surface)}
+.theme svg{width:15px;height:15px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  height:36px;padding:0 16px;border-radius:9px;
+  font-size:.86rem;font-weight:500;
+  border:1px solid var(--line-2);background:var(--surface);color:var(--fg);
+  transition:background .15s,border-color .15s,transform .08s;
+}
+.btn:hover{background:var(--surface-2);border-color:var(--fg-3)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{
+  background:var(--accent);color:#04150a;border-color:var(--accent);font-weight:600;
+}
+.btn.primary:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn svg{width:15px;height:15px}
+
+main{padding:80px 0 100px}
+
+#home{text-align:center}
+h1{
+  font-size:clamp(3rem,7vw,5rem);
+  font-weight:600;letter-spacing:-.04em;line-height:1.02;
+  margin:0 auto 22px;max-width:16ch;
+}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{
+  color:var(--fg-2);font-size:clamp(1.05rem,1.6vw,1.25rem);
+  max-width:56ch;margin:0 auto 120px;line-height:1.55;
+}
+
+.list{border-top:1px solid var(--line)}
+.row{
+  display:flex;align-items:center;gap:20px;
+  padding:18px 4px;border-bottom:1px solid var(--line);
+  cursor:pointer;width:100%;text-align:left;
+  transition:padding-left .18s,background .15s;
+  color:var(--fg);
+}
+.row:hover{padding-left:14px}
+.row:hover .t{color:var(--accent)}
+.row:hover .chev{transform:translateX(3px);color:var(--accent)}
+.row .n{
+  font-size:.76rem;color:var(--fg-3);
+  font-variant-numeric:tabular-nums;
+  width:22px;flex:none;font-weight:500;
+}
+.row .t{
+  font-size:1rem;font-weight:500;flex:1;
+  transition:color .15s;letter-spacing:-.005em;
+}
+.row .t small{
+  display:block;font-weight:400;font-size:.82rem;
+  color:var(--fg-3);margin-top:3px;letter-spacing:0;
+}
+.row .c{
+  font-size:.76rem;color:var(--fg-3);
+  padding:4px 9px;border-radius:6px;
+  background:var(--surface);border:1px solid var(--line);
+  white-space:nowrap;font-weight:500;
+}
+.row .chev{
+  color:var(--fg-3);flex:none;
+  transition:transform .2s,color .2s;
+}
+.row .chev svg{width:16px;height:16px;display:block}
+
+.ask{
+  margin-top:56px;padding:28px;
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  background:var(--surface);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.ask h3{
+  font-size:1.05rem;font-weight:600;letter-spacing:-.01em;
+  margin:0 0 5px;
+}
+.ask p{font-size:.86rem;color:var(--fg-2);margin:0;max-width:44ch}
+
+footer{border-top:1px solid var(--line);margin-top:80px}
+footer .inner{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:24px;padding:22px 0;font-size:.8rem;color:var(--fg-3);
+  flex-wrap:wrap;
+}
+footer a:hover{color:var(--fg-2)}
+footer .links{display:flex;gap:20px}
+
+.modal-backdrop{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-backdrop.open{display:flex;animation:fade .18s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  width:min(720px,100%);max-height:88vh;overflow:auto;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  animation:rise .22s cubic-bezier(.2,.8,.3,1);
+  display:flex;flex-direction:column;
+}
+@keyframes rise{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+.modal-head{
+  position:sticky;top:0;z-index:2;
+  background:var(--bg);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:14px;padding:18px 22px;
+}
+.modal-head h2{
+  margin:0;font-size:1.05rem;font-weight:600;letter-spacing:-.01em;
+}
+.modal-head h2 .badge{
+  display:inline-block;font-size:.7rem;font-weight:500;
+  color:var(--accent);background:var(--accent-soft);
+  padding:2px 8px;border-radius:6px;margin-left:8px;
+  vertical-align:middle;letter-spacing:0;
+}
+.close{
+  width:32px;height:32px;border-radius:8px;
+  border:1px solid var(--line);background:var(--surface);
+  display:grid;place-items:center;color:var(--fg-2);flex:none;
+  transition:border-color .15s,color .15s;
+}
+.close:hover{border-color:var(--line-2);color:var(--fg)}
+.close svg{width:14px;height:14px}
+.modal-content{padding:22px}
+
+.case{padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.case:last-of-type{border:0;margin:0;padding:0}
+.case h3{margin:0 0 8px;font-size:1rem;font-weight:600;letter-spacing:-.01em}
+.case > p{color:var(--fg-2);margin:0 0 16px;font-size:.9rem;line-height:1.55}
+.case h4{
+  font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--fg-3);margin:18px 0 9px;
+}
+.case ul,.case ol{margin:0;padding:0;list-style:none}
+.case ul li{
+  position:relative;padding-left:18px;margin-bottom:7px;
+  font-size:.88rem;color:var(--fg-2);line-height:1.55;
+}
+.case ul li::before{
+  content:"";position:absolute;left:2px;top:.6em;
+  width:4px;height:4px;border-radius:50%;background:var(--accent);
+}
+.case ol{counter-reset:step}
+.case ol li{
+  position:relative;padding-left:32px;margin-bottom:9px;
+  font-size:.88rem;color:var(--fg-2);line-height:1.55;
+  counter-increment:step;
+}
+.case ol li::before{
+  content:counter(step);
+  position:absolute;left:0;top:0;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line-2);
+  display:grid;place-items:center;
+  font-size:.7rem;font-weight:600;color:var(--accent);
+}
+.deadline{
+  display:flex;gap:10px;align-items:flex-start;
+  margin-top:14px;padding:12px 14px;
+  background:var(--accent-soft);
+  border-radius:var(--radius);
+  font-size:.84rem;color:var(--fg-2);line-height:1.5;
+}
+.deadline svg{width:15px;height:15px;color:var(--accent);flex:none;margin-top:2px}
+.deadline b{color:var(--accent);font-weight:600}
+.case-ask{
+  display:flex;align-items:center;gap:8px;
+  margin-top:14px;font-size:.82rem;color:var(--accent);
+}
+.case-ask:hover{text-decoration:underline}
+.case-ask svg{width:14px;height:14px}
+
+.chat-wrap{display:flex;flex-direction:column;min-height:0;flex:1}
+.chatlog{
+  display:flex;flex-direction:column;gap:10px;
+  overflow:auto;padding:0 22px;flex:1;min-height:0;
+  max-height:52vh;
+}
+.chatlog-empty{
+  color:var(--fg-3);font-size:.86rem;
+  display:grid;gap:10px;padding:8px 0;
+}
+.chatlog-empty .chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-size:.8rem;color:var(--fg-2);
+  padding:7px 12px;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface);
+  transition:border-color .15s,color .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.bubble{
+  white-space:pre-wrap;overflow-wrap:anywhere;
+  max-width:88%;padding:11px 14px;border-radius:12px;
+  background:var(--surface);border:1px solid var(--line);
+  font-size:.88rem;line-height:1.55;
+}
+.bubble.user{
+  align-self:flex-end;
+  background:var(--accent);color:#04150a;border-color:var(--accent);
+  font-weight:500;
+}
+.bubble.error{
+  border-color:var(--danger);color:var(--danger);
+  background:color-mix(in srgb,var(--danger) 8%,transparent);
+}
+.bubble.assistant :is(p,ul,ol,pre,blockquote){margin:0 0 10px}
+.bubble.assistant :last-child{margin-bottom:0}
+.bubble.assistant p{white-space:pre-wrap}
+.bubble.assistant ul,.bubble.assistant ol{padding-left:20px}
+.bubble.assistant li{margin-bottom:4px}
+.bubble.assistant code{
+  background:var(--surface-2);padding:1px 5px;border-radius:4px;
+  font-size:.85em;font-family:ui-monospace,Menlo,monospace;
+}
+.bubble.assistant pre{
+  background:var(--surface-2);padding:10px;border-radius:8px;
+  overflow:auto;font-size:.82em;
+}
+.bubble.assistant strong{color:var(--fg);font-weight:600}
+.cursor{
+  display:inline-block;width:7px;height:14px;
+  background:var(--accent);vertical-align:-2px;
+  animation:blink 1s steps(2,start) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+.chat-form{
+  border-top:1px solid var(--line);padding:14px 22px 18px;
+  background:var(--bg);position:sticky;bottom:0;
+}
+.chat-input{
+  width:100%;min-height:64px;max-height:200px;resize:vertical;
+  background:var(--surface);color:var(--fg);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 14px;outline:none;
+  font-size:.9rem;line-height:1.5;
+  transition:border-color .15s;
+}
+.chat-input:focus{border-color:var(--accent)}
+.chat-actions{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;flex-wrap:wrap;margin-top:10px;
+}
+.chat-actions .left{display:flex;align-items:center;gap:10px}
+.small{font-size:.82rem;color:var(--fg-3)}
+.disclaimer{
+  font-size:.8rem;color:var(--fg-3);
+  padding:12px 14px;border:1px solid var(--line);
+  border-radius:var(--radius);margin:16px 22px 0;line-height:1.5;
+}
+.spinner{
+  width:12px;height:12px;border-radius:50%;
+  border:2px solid var(--line-2);border-top-color:var(--accent);
+  animation:spin .8s linear infinite;display:inline-block;
+  vertical-align:-1px;margin-right:6px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.apikey-note{
+  font-size:.78rem;color:var(--fg-3);
+  padding:10px 12px;border:1px dashed var(--line-2);
+  border-radius:var(--radius);margin:0 22px 12px;line-height:1.5;
+}
+.apikey-note b{color:var(--danger);font-weight:600}
+.apikey-note code{
+  background:var(--surface-2);padding:1px 5px;border-radius:4px;
+  font-size:.9em;font-family:ui-monospace,Menlo,monospace;
+}
+
+@media(max-width:720px){
+  .wrap{width:calc(100% - 28px)}
+  .nav{height:auto;flex-wrap:wrap;padding:12px 0;gap:12px}
+  .nav .links{
+    order:3;width:100%;margin:0;overflow-x:auto;
+    display:flex;gap:2px;padding-bottom:2px;
+    scrollbar-width:none;
+  }
+  .nav .links::-webkit-scrollbar{display:none}
+  .nav .links a{white-space:nowrap;font-size:.82rem;padding:6px 10px}
+  .brand{font-size:.88rem}
+  .nav .spacer{display:none}
+  .nav .theme{margin-left:auto}
+  main{padding:52px 0 64px}
+  h1{font-size:2.4rem;letter-spacing:-.03em;margin:0 auto 16px;max-width:100%}
+  .lead{font-size:1rem;margin:0 auto 64px}
+  .row{
+    display:grid;grid-template-columns:22px 1fr auto;
+    gap:12px;padding:16px 2px;
+  }
+  .row:hover{padding-left:2px}
+  .row .t small{font-size:.78rem}
+  .row .c{display:none}
+  .ask{padding:22px;flex-direction:column;align-items:flex-start;gap:16px}
+  .ask .btn{width:100%;justify-content:center}
+  .modal-backdrop{padding:0;align-items:flex-end}
+  .modal{
+    max-height:94vh;border-radius:16px 16px 0 0;width:100%;
+    height:94vh;
+  }
+  .modal-head{padding:16px 18px}
+  .modal-content{padding:18px}
+  .chatlog{padding:0 18px;max-height:calc(94vh - 240px)}
+  .chat-form{padding:12px 18px 16px}
+  .disclaimer,.apikey-note{margin-left:18px;margin-right:18px}
+  .bubble{max-width:92%}
+  footer .inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="Правовой гид — на главную">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14"/><path d="M5 7 2 13a3 3 0 0 0 6 0Z"/><path d="M19 7l3 6a3 3 0 0 1-6 0Z"/></svg>
+      </span>
+      Правовой гид
+    </a>
+
+    <nav class="links" aria-label="Основная навигация">
+      <a href="#branches">Отрасли</a>
+      <a href="#consultant" id="navChat">Консультант</a>
+      <a href="#about">О проекте</a>
+    </nav>
+
+    <div class="spacer"></div>
+
+    <button class="theme" id="themeToggle" type="button" aria-label="Переключить тему">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+
+    <button class="btn primary" id="heroChat" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+      Спросить
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="home">
+    <h1>Понятно <em>о законе</em> — без лишнего</h1>
+    <p class="lead">Нормы, порядок действий и сроки по типовым правовым ситуациям. Выберите отрасль — раскроем детали.</p>
+  </section>
+
+  <section id="branches">
+    <div class="list" id="branchList"></div>
+  </section>
+
+  <section id="about">
+    <div class="ask">
+      <div>
+        <h3>Не нашли свою ситуацию?</h3>
+        <p>Опишите, что произошло — подскажем применимые нормы и с чего начать.</p>
+      </div>
+      <button class="btn primary" id="aboutChat" type="button">
+        Задать вопрос
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap inner">
+    <div>© Правовой гид. Не является юридической консультацией.</div>
+    <div class="links">
+      <a href="#about">О проекте</a>
+      <a href="https://pravo.gov.ru/" target="_blank" rel="noopener">pravo.gov.ru ↗</a>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="branchModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modalTitle">Отрасль права</h2>
+      <button class="close" id="closeBranch" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-content" id="branchContent"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="chatModal" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="chatTitle">Консультант</h2>
+      <button class="close" id="closeChat" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="apikey-note" id="apiKeyNote">
+      <b>Ключ OpenRouter не задан.</b> Открой файл, найди строку
+      <code>const OPENROUTER_KEY = "";</code> и вставь свой ключ.
+      Не коммить его в публичный репозиторий.
+    </div>
+
+    <div class="chat-wrap">
+      <div class="chatlog" id="chatLog"></div>
+    </div>
+
+    <form class="chat-form" id="chatForm">
+      <textarea id="question" class="chat-input" maxlength="4000" placeholder="Например: работодатель задерживает зарплату. Что делать?"></textarea>
+      <div class="chat-actions">
+        <div class="left">
+          <button type="button" class="btn" id="clearChat">Очистить</button>
+          <button type="button" class="btn" id="stopBtn" style="display:none">Стоп</button>
+        </div>
+        <div class="left">
+          <span class="small" id="statusHint"></span>
+          <button type="submit" class="btn primary" id="sendBtn">
+            Спросить
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="disclaimer">Ответ носит информационный характер и не является юридической консультацией. Не вводите паспортные данные и другие чувствительные сведения.</div>
+  </div>
+</div>
+
+<script>
+const OPENROUTER_KEY = "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";
+const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+
+const MODELS = [
+  "openrouter/free"
+];
+
+const REQUEST_TIMEOUT_MS = 60000;
+const MAX_HISTORY = 16;
+const MAX_TOKENS = 1200;
+const TEMPERATURE = 0.3;
+
+const SYSTEM_PROMPT = `Ты — правовой ассистент справочника «Правовой гид» по российскому законодательству.
+Правила:
+- Отвечай на русском, кратко и по делу, структурируй ответ подзаголовками и списками.
+- Опирайся только на действующие нормы РФ. Если норма неоднозначна — честно об этом скажи.
+- В конце каждого ответа указывай применимые статьи с номерами.
+- Если ситуация требует срочных действий или связана с уголовным или административным риском — предупреди и посоветуй обратиться к живому юристу.
+- Не выдумывай номера статей и не ссылайся на нормы, в существовании которых не уверен.
+- Не давай окончательных юридических заключений — ты справочный помощник.
+- Никогда не проси персональные данные.`;
+
+const branches = [
+  {title:"Трудовое право", law:"ТК РФ", desc:"Зарплата, увольнение, договоры", cases:[
+    {title:"Задерживают заработную плату", desc:"Работодатель обязан выплачивать зарплату в установленные сроки. Проверьте договор, расчётные листки и фактические даты выплат.",
+      laws:["ТК РФ, ст. 136 — порядок и сроки выплаты заработной платы.","ТК РФ, ст. 236 — материальная ответственность работодателя за задержку выплат.","ТК РФ, ст. 352 — способы защиты трудовых прав."],
+      steps:["Соберите трудовой договор, расчётные листки и выписку по счёту.","Направьте работодателю письменное обращение и сохраните подтверждение.","При необходимости обратитесь в Государственную инспекцию труда или суд."],
+      time:"По индивидуальным трудовым спорам учитывайте сроки ТК РФ, ст. 392."},
+    {title:"Увольнение по инициативе работодателя", desc:"Законность увольнения зависит от основания, процедуры и документов.",
+      laws:["ТК РФ, ст. 81 — основания увольнения по инициативе работодателя.","ТК РФ, ст. 84.1 — оформление прекращения трудового договора.","ТК РФ, ст. 392 — сроки обращения в суд."],
+      steps:["Получите копии приказов и документов об увольнении.","Зафиксируйте дату получения документов и основание увольнения.","Проверьте процедуру с юристом или инспекцией труда."],
+      time:"Для споров об увольнении предусмотрен специальный срок обращения в суд."},
+    {title:"Сверхурочная работа и переработки", desc:"Сверхурочная работа имеет ограничения по продолжительности и оплачивается в повышенном размере.",
+      laws:["ТК РФ, ст. 99 — понятие сверхурочной работы и случаи привлечения.","ТК РФ, ст. 152 — оплата сверхурочной работы.","ТК РФ, ст. 153 — оплата труда в выходные и праздничные дни."],
+      steps:["Фиксируйте фактическое время начала и окончания работы.","Проверьте, оформлялось ли письменное согласие и приказ.","Сверьте оплату с расчётным листком."],
+      time:"Обращение по спору об оплате — в пределах срока ТК РФ, ст. 392."},
+    {title:"Отпуск: право и оформление", desc:"Право на ежегодный оплачиваемый отпуск возникает у работника по ТК РФ.",
+      laws:["ТК РФ, ст. 114 — ежегодные оплачиваемые отпуска.","ТК РФ, ст. 122 — порядок предоставления.","ТК РФ, ст. 136 — срок выплаты отпускных."],
+      steps:["Проверьте график отпусков и свой стаж.","Подайте заявление в установленном порядке.","Проследите, чтобы отпускные были выплачены не позднее чем за 3 дня."],
+      time:"Спорные ситуации — по ТК РФ, ст. 392."}]},
+
+  {title:"Защита прав потребителей", law:"ЗоЗПП", desc:"Возврат, гарантия, услуги", cases:[
+    {title:"Некачественный товар", desc:"Права зависят от характера недостатка, вида товара и обстоятельств покупки.",
+      laws:["ЗоЗПП, ст. 18 — права при обнаружении недостатков товара.","ЗоЗПП, ст. 19 — сроки предъявления требований.","ЗоЗПП, ст. 22 — сроки удовлетворения отдельных требований."],
+      steps:["Сфотографируйте недостаток и сохраните документы о покупке.","Направьте продавцу письменное требование.","При споре уточните правила проверки качества и экспертизы."],
+      time:"Для ряда требований по ст. 22 ЗоЗПП установлен срок 10 дней."},
+    {title:"Возврат покупки из интернет-магазина", desc:"Для дистанционной покупки действуют специальные правила и исключения.",
+      laws:["ЗоЗПП, ст. 26.1 — дистанционный способ продажи товара.","ЗоЗПП, ст. 25 — обмен товара надлежащего качества."],
+      steps:["Сохраните заказ, карточку товара и переписку.","Письменно сообщите продавцу о своём требовании.","Проверьте, не относится ли товар к исключениям."],
+      time:"Сроки зависят от момента передачи товара."},
+    {title:"Некачественная услуга", desc:"При недостатках работы или услуги потребитель вправе требовать устранения, снижения цены или возмещения расходов.",
+      laws:["ЗоЗПП, ст. 29 — права при недостатках работы или услуги.","ЗоЗПП, ст. 30 — сроки устранения недостатков.","ЗоЗПП, ст. 31 — сроки удовлетворения отдельных требований."],
+      steps:["Зафиксируйте недостатки.","Направьте исполнителю письменную претензию.","При отказе — жалоба в Роспотребнадзор или иск в суд."],
+      time:"Сроки по ст. 30–31 ЗоЗПП."},
+    {title:"Возврат денег за отменённую услугу", desc:"Если услуга не оказана, потребитель вправе требовать возврата уплаченной суммы.",
+      laws:["ЗоЗПП, ст. 28 — последствия нарушения сроков.","ЗоЗПП, ст. 32 — право отказаться от исполнения договора.","ГК РФ, ст. 782 — односторонний отказ от договора."],
+      steps:["Направьте письменный отказ от услуги.","Потребуйте возврата уплаченных средств с расчётом.","При отказе — претензия, затем суд."],
+      time:"Общие сроки исковой давности и специальные сроки ЗоЗПП."}]},
+
+  {title:"Семейное право", law:"СК РФ", desc:"Брак, алименты, дети", cases:[
+    {title:"Взыскание алиментов", desc:"Способ взыскания зависит от согласия сторон и наличия спора.",
+      laws:["СК РФ, ст. 80 — обязанность родителей содержать несовершеннолетних детей.","СК РФ, ст. 99–105 — соглашение об уплате алиментов.","СК РФ, ст. 81 — размер алиментов при судебном взыскании в долях."],
+      steps:["Подготовьте документы о родстве и сведения о сторонах.","Определите, возможно ли нотариальное соглашение.","При споре уточните подходящий судебный порядок."],
+      time:"Процедура и сроки зависят от вида требования."},
+    {title:"Расторжение брака", desc:"Развод оформляется через ЗАГС или суд в зависимости от обстоятельств.",
+      laws:["СК РФ, ст. 18–19 — порядок расторжения брака.","СК РФ, ст. 21–23 — расторжение брака в судебном порядке."],
+      steps:["Уточните, есть ли общие несовершеннолетние дети и спор о детях.","Подготовьте документы и определите компетентный орган.","Имущественные споры оцените отдельно."],
+      time:"Срок зависит от порядка расторжения брака."},
+    {title:"Определение места жительства ребёнка", desc:"Спор решается судом с учётом интересов ребёнка и заключения органов опеки.",
+      laws:["СК РФ, ст. 65 — осуществление родительских прав.","СК РФ, ст. 66 — права отдельно проживающего родителя.","СК РФ, ст. 78 — участие органа опеки в судебных спорах."],
+      steps:["Соберите доказательства привязанности ребёнка и условий жизни.","Получите заключение органа опеки.","Подайте иск в суд по правилам подсудности."],
+      time:"Сроки рассмотрения — по ГПК РФ."},
+    {title:"Раздел совместно нажитого имущества", desc:"Имущество, нажитое в браке, по общему правилу делится поровну.",
+      laws:["СК РФ, ст. 34 — совместная собственность супругов.","СК РФ, ст. 38 — раздел общего имущества.","СК РФ, ст. 39 — определение долей."],
+      steps:["Проведите опись имущества и оценку.","Попробуйте заключить соглашение о разделе.","При споре — иск в суд."],
+      time:"К требованиям о разделе применяется исковая давность."}]},
+
+  {title:"Жилищное право", law:"ЖК РФ", desc:"ЖКХ, собственники, дом", cases:[
+    {title:"Проблемы с коммунальными услугами", desc:"При перерывах или ненадлежащем качестве услуг зафиксируйте обстоятельства и подайте заявку исполнителю.",
+      laws:["ЖК РФ, ст. 157 — размер платы за коммунальные услуги.","Постановление Правительства РФ № 354 — правила предоставления коммунальных услуг."],
+      steps:["Зафиксируйте дату, время и характер нарушения.","Подайте заявку в аварийно-диспетчерскую службу и запишите номер.","Запросите проверку и перерасчёт."],
+      time:"Сроки фиксации и перерасчёта зависят от вида услуги."},
+    {title:"Общее имущество дома", desc:"Некоторые помещения и конструкции многоквартирного дома относятся к общему имуществу собственников.",
+      laws:["ЖК РФ, ст. 36 — право собственности на общее имущество.","ЖК РФ, ст. 44 — общее собрание собственников.","ЖК РФ, ст. 161 — управление многоквартирным домом."],
+      steps:["Уточните, относится ли объект к общему имуществу.","Запросите документы у управляющей организации.","При необходимости вынесите вопрос на общее собрание."],
+      time:"Сроки оспаривания решений зависят от предмета спора."},
+    {title:"Затопление квартиры", desc:"Вред, причинённый заливом, возмещается лицом, ответственным за его причинение.",
+      laws:["ГК РФ, ст. 1064 — общие основания ответственности за причинение вреда.","ГК РФ, ст. 15 — возмещение убытков.","ЖК РФ, ст. 30 — права и обязанности собственника."],
+      steps:["Вызовите представителей УК и составьте акт.","Зафиксируйте ущерб фото и независимой оценкой.","Направьте претензию виновному лицу, при отказе — иск."],
+      time:"Общий срок исковой давности — три года."},
+    {title:"Перевод жилого помещения в нежилое", desc:"Перевод возможен при соблюдении условий ЖК РФ.",
+      laws:["ЖК РФ, ст. 22 — условия перевода.","ЖК РФ, ст. 23 — порядок перевода.","ЖК РФ, ст. 24 — отказ в переводе."],
+      steps:["Проверьте соответствие помещения условиям ст. 22.","Подготовьте документы согласно перечню.","Подайте заявление в орган местного самоуправления."],
+      time:"Сроки рассмотрения — по нормам ЖК РФ и регламентам ОМСУ."}]},
+
+  {title:"Гражданское право", law:"ГК РФ", desc:"Долги, договоры, вред", cases:[
+    {title:"Не возвращают долг", desc:"Для взыскания важны доказательства передачи денег, условия возврата и переписка.",
+      laws:["ГК РФ, ст. 807 — договор займа.","ГК РФ, ст. 808 — форма договора займа.","ГК РФ, ст. 309 — надлежащее исполнение обязательств.","ГК РФ, ст. 196 и 200 — исковая давность."],
+      steps:["Сохраните расписку, банковские документы и переписку.","Направьте письменное требование о возврате долга.","Проверьте судебный порядок и срок исковой давности."],
+      time:"Общий срок исковой давности — три года."},
+    {title:"Возмещение причинённого вреда", desc:"Для требования о возмещении нужно установить обстоятельства, ущерб и основания ответственности.",
+      laws:["ГК РФ, ст. 15 — возмещение убытков.","ГК РФ, ст. 1064 — общие основания ответственности.","ГК РФ, ст. 1082 — способы возмещения вреда."],
+      steps:["Зафиксируйте событие и последствия.","Соберите фото, заключения и подтверждения расходов.","Направьте требование ответственному лицу."],
+      time:"Срок исковой давности зависит от характера требования."},
+    {title:"Нарушение условий договора", desc:"При нарушении обязательства сторона вправе требовать исполнения, возмещения убытков или расторжения договора.",
+      laws:["ГК РФ, ст. 393 — обязанность должника возместить убытки.","ГК РФ, ст. 450 — основания изменения и расторжения договора.","ГК РФ, ст. 453 — последствия расторжения."],
+      steps:["Зафиксируйте факт нарушения и убытки.","Направьте претензию с требованием.","При отказе — обращение в суд."],
+      time:"Общие сроки исковой давности; для отдельных договоров — специальные."},
+    {title:"Защита права собственности", desc:"Собственник вправе истребовать имущество из чужого незаконного владения.",
+      laws:["ГК РФ, ст. 301 — истребование имущества.","ГК РФ, ст. 302 — защита добросовестного приобретателя.","ГК РФ, ст. 304 — защита прав собственника."],
+      steps:["Подтвердите право собственности документами.","Зафиксируйте факт владения имуществом другим лицом.","Подайте иск об истребовании имущества."],
+      time:"К виндикационным искам применяется исковая давность."}]},
+
+  {title:"Административное право", law:"КоАП РФ", desc:"Штрафы, обжалование", cases:[
+    {title:"Обжалование административного штрафа", desc:"Проверьте, кто вынес постановление, дату получения, описание события и доказательства.",
+      laws:["КоАП РФ, ст. 30.1 — право на обжалование постановления.","КоАП РФ, ст. 30.2 — порядок подачи жалобы.","КоАП РФ, ст. 30.3 — срок обжалования."],
+      steps:["Получите копию постановления и доступные материалы дела.","Соберите доказательства и сформулируйте доводы.","Подайте жалобу в компетентный орган или суд."],
+      time:"Общий срок подачи жалобы — 10 дней со дня вручения копии постановления."},
+    {title:"Вызов в административный орган", desc:"Уточните процессуальный статус, орган, основание вызова и свои обязанности.",
+      laws:["КоАП РФ, ст. 25.1 — права лица, в отношении которого ведётся производство.","КоАП РФ, ст. 25.2 — потерпевший.","КоАП РФ, ст. 25.5 — защитник и представитель."],
+      steps:["Проверьте реквизиты вызова.","Уточните свой статус и права.","При риске серьёзных последствий получите юридическую помощь."],
+      time:"Сроки зависят от документа и процессуального статуса."},
+    {title:"Лишение права управления ТС", desc:"Такие дела рассматриваются судом; важно участвовать в заседании и представлять доказательства.",
+      laws:["КоАП РФ, ст. 3.8 — лишение специального права.","КоАП РФ, ст. 30.1–30.3 — обжалование.","КоАП РФ, ст. 25.1 — права лица."],
+      steps:["Получите копию протокола и постановления.","Подготовьте объяснения и доказательства.","Участвуйте в судебном заседании лично или через защитника."],
+      time:"Срок обжалования — 10 суток со дня вручения копии постановления."},
+    {title:"Оспаривание действий должностных лиц", desc:"Действия и решения органов власти можно обжаловать в вышестоящий орган или суд.",
+      laws:["КоАП РФ, ст. 30.1 — обжалование постановлений.","ГК РФ, ст. 1069 — ответственность за вред, причинённый органами власти.","КАС РФ — порядок оспаривания решений и действий."],
+      steps:["Зафиксируйте обстоятельства и получите письменные документы.","Направьте жалобу в вышестоящий орган.","При необходимости — административный иск в суд."],
+      time:"Сроки обжалования зависят от вида акта."}]},
+
+  {title:"Налоговое право", law:"НК РФ", desc:"Вычеты, ФНС, декларации", cases:[
+    {title:"Получение налогового вычета", desc:"Возможность вычета зависит от вида расходов, налогового статуса и подтверждающих документов.",
+      laws:["НК РФ, ст. 218 — стандартные налоговые вычеты.","НК РФ, ст. 219 — социальные налоговые вычеты.","НК РФ, ст. 220 — имущественные налоговые вычеты."],
+      steps:["Определите вид вычета и налоговый период.","Подготовьте подтверждающие документы.","Проверьте способ подачи заявления на сайте ФНС."],
+      time:"Лимиты и сроки зависят от вида вычета."},
+    {title:"Письмо или требование от ФНС", desc:"Определите вид документа, срок ответа и действие, которое от вас требуется.",
+      laws:["НК РФ, ст. 23 — обязанности налогоплательщиков.","НК РФ, ст. 31 — права налоговых органов.","НК РФ, ст. 69–70 — требование об уплате."],
+      steps:["Проверьте документ через официальный личный кабинет.","Запишите срок и подготовьте запрошенные сведения.","При несогласии изучите порядок пояснений или обжалования."],
+      time:"Ориентируйтесь на срок, указанный в документе."},
+    {title:"Подача декларации 3-НДФЛ", desc:"Декларация подаётся по доходам, подлежащим декларированию, и для получения вычетов.",
+      laws:["НК РФ, ст. 228 — обязанность декларирования.","НК РФ, ст. 229 — сроки подачи декларации.","НК РФ, ст. 80 — налоговая декларация."],
+      steps:["Соберите подтверждающие документы.","Заполните декларацию через личный кабинет ФНС.","Подайте в установленный срок."],
+      time:"Общий срок подачи — не позднее 30 апреля, оплата — до 15 июля."},
+    {title:"Обжалование решения налогового органа", desc:"Решения ФНС можно обжаловать в вышестоящий орган и в суд.",
+      laws:["НК РФ, ст. 137 — право на обжалование.","НК РФ, ст. 138 — порядок обжалования.","НК РФ, ст. 139 — порядок и сроки подачи жалобы."],
+      steps:["Получите решение и уточните срок обжалования.","Подайте апелляционную жалобу в вышестоящий орган.","При необходимости — обращение в суд."],
+      time:"Срок подачи апелляционной жалобы — один месяц со дня вручения решения."}]},
+
+  {title:"Уголовное право", law:"УК / УПК РФ", desc:"Допрос, защита, процесс", cases:[
+    {title:"Вызов на допрос", desc:"Уточните, в каком статусе вас вызывают и какой орган направил вызов.",
+      laws:["УПК РФ, ст. 46 — подозреваемый.","УПК РФ, ст. 47 — обвиняемый.","УПК РФ, ст. 56 — свидетель.","Конституция РФ, ст. 51 — право не свидетельствовать против себя и близких."],
+      steps:["Проверьте реквизиты вызова и процессуальный статус.","Уточните право на защитника и порядок участия.","При риске уголовного преследования обратитесь к адвокату."],
+      time:"Сроки зависят от процессуального документа."},
+    {title:"Сообщение о преступлении", desc:"При непосредственной опасности в первую очередь обратитесь в экстренные службы.",
+      laws:["УПК РФ, ст. 141 — заявление о преступлении.","УПК РФ, ст. 144–145 — проверка сообщения."],
+      steps:["При непосредственной угрозе обратитесь в экстренные службы.","Изложите факты, даты, место и известные сведения.","Сохраните подтверждение регистрации обращения."],
+      time:"Сроки проверки регулируются УПК РФ, ст. 144."},
+    {title:"Задержание по подозрению", desc:"С момента фактического задержания у лица появляются права.",
+      laws:["УПК РФ, ст. 91–92 — основания и порядок задержания.","УПК РФ, ст. 46 — права подозреваемого.","Конституция РФ, ст. 48 — право на юридическую помощь."],
+      steps:["Потребуйте уведомления близких и защитника.","Не давайте показаний без защитника.","Зафиксируйте время фактического задержания."],
+      time:"Срок задержания без судебного решения — 48 часов."},
+    {title:"Обжалование действий следователя", desc:"Действия следователя обжалуются руководителю следственного органа, прокурору или в суд.",
+      laws:["УПК РФ, ст. 19 — право на обжалование.","УПК РФ, ст. 124 — жалоба прокурору.","УПК РФ, ст. 125 — судебный порядок рассмотрения жалоб."],
+      steps:["Составьте письменную жалобу.","Подайте её в компетентный орган или суд.","Приложите подтверждающие документы."],
+      time:"Жалоба рассматривается в сроки, установленные УПК РФ."}]}
+];
+
+const $  = (s, r=document) => r.querySelector(s);
+
+const esc = (s) => String(s ?? "")
+  .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;").replaceAll("'","&#39;");
+
+function renderMarkdown(text){
+  const safe = esc(text);
+  const blocks = safe.split(/\n{2,}/).map(block => {
+    const lines = block.split("\n");
+    if(lines.length && lines.every(l => /^\s*[-*]\s+/.test(l))){
+      return `<ul>${lines.map(l => `<li>${inline(l.replace(/^\s*[-*]\s+/,""))}</li>`).join("")}</ul>`;
+    }
+    if(lines.length && lines.every(l => /^\s*\d+\.\s+/.test(l))){
+      return `<ol>${lines.map(l => `<li>${inline(l.replace(/^\s*\d+\.\s+/,""))}</li>`).join("")}</ol>`;
+    }
+    if(/^#{1,6}\s+/.test(block)){
+      const lvl = Math.min(block.match(/^#+/)[0].length + 2, 6);
+      return `<h${lvl}>${inline(block.replace(/^#+\s+/,""))}</h${lvl}>`;
+    }
+    return `<p>${inline(block).replace(/\n/g,"<br>")}</p>`;
+  }).join("");
+  return blocks;
+
+  function inline(s){
+    return s
+      .replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>")
+      .replace(/`([^`]+)`/g,"<code>$1</code>");
+  }
+}
+
+const list = $("#branchList");
+branches.forEach((b, i) => {
+  const n = String(i + 1).padStart(2, "0");
+  const row = document.createElement("button");
+  row.type = "button";
+  row.className = "row";
+  row.innerHTML = `
+    <span class="n">${n}</span>
+    <span class="t">${esc(b.title)}<small>${esc(b.desc)}</small></span>
+    <span class="c">${esc(b.law)}</span>
+    <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>`;
+  row.addEventListener("click", () => openBranch(i));
+  list.appendChild(row);
+});
+
+const branchModal   = $("#branchModal");
+const branchContent = $("#branchContent");
+const chatModal     = $("#chatModal");
+const chatLog       = $("#chatLog");
+const question      = $("#question");
+
+function lockScroll(on){ document.body.style.overflow = on ? "hidden" : ""; }
+function closeModal(el){
+  if(!el) return;
+  el.classList.remove("open");
+  if(!document.querySelector(".modal-backdrop.open")) lockScroll(false);
+}
+
+function openBranch(i){
+  const b = branches[i];
+  $("#modalTitle").innerHTML = `${esc(b.title)}<span class="badge">${esc(b.law)}</span>`;
+  branchContent.replaceChildren();
+
+  b.cases.forEach(c => {
+    const article = document.createElement("article");
+    article.className = "case";
+    article.innerHTML = `
+      <h3>${esc(c.title)}</h3>
+      <p>${esc(c.desc)}</p>
+      <h4>Какие нормы проверить</h4>
+      <ul>${c.laws.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <h4>Пошаговый план</h4>
+      <ol>${c.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+      <div class="deadline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span><b>Сроки и условия.</b> ${esc(c.time)}</span>
+      </div>
+      <button type="button" class="case-ask" data-q="${esc(c.title + ". " + b.title)}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+        Спросить консультанта по этой ситуации
+      </button>`;
+
+    article.querySelector(".case-ask").addEventListener("click", (e) => {
+      const q = e.currentTarget.dataset.q;
+      closeModal(branchModal);
+      openChat();
+      setTimeout(() => {
+        question.value = "Разбери подробно: " + q + ". Какие нормы применить и что делать по шагам?";
+        question.focus();
+        autoGrow();
+      }, 120);
+    });
+
+    branchContent.appendChild(article);
+  });
+
+  const note = document.createElement("div");
+  note.className = "disclaimer";
+  note.textContent = "Материал носит информационный характер и не является юридической консультацией. Проверьте актуальную редакцию законодательства.";
+  branchContent.appendChild(note);
+
+  branchModal.classList.add("open");
+  lockScroll(true);
+}
+
+$("#closeBranch").addEventListener("click", () => closeModal(branchModal));
+branchModal.addEventListener("click", e => { if(e.target === branchModal) closeModal(branchModal); });
+
+const sendBtn    = $("#sendBtn");
+const stopBtn    = $("#stopBtn");
+const clearBtn   = $("#clearChat");
+const apiKeyNote = $("#apiKeyNote");
+const chatForm   = $("#chatForm");
+
+const STORAGE_KEY = "pravovoy-gid-chat-v2";
+let history = [];
+let streaming = false;
+let controller = null;
+
+function loadHistory(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    history = raw ? JSON.parse(raw) : [];
+    if(!Array.isArray(history)) history = [];
+  }catch(e){ history = []; }
+  renderHistory();
+}
+function saveHistory(){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-40))); }catch(e){}
+}
+
+function renderHistory(){
+  chatLog.replaceChildren();
+
+  if(!history.length){
+    const empty = document.createElement("div");
+    empty.className = "chatlog-empty";
+    empty.innerHTML = `
+      <div>Опишите ситуацию — подскажу нормы и порядок действий.</div>
+      <div class="chips">
+        <button class="chip" type="button" data-q="Работодатель задерживает зарплату. Что делать?">Задержка зарплаты</button>
+        <button class="chip" type="button" data-q="Купил некачественный товар. Как вернуть деньги?">Некачественный товар</button>
+        <button class="chip" type="button" data-q="Пришёл штраф ГИБДД, хочу обжаловать. С чего начать?">Обжалование штрафа</button>
+        <button class="chip" type="button" data-q="Развожусь, есть несовершеннолетний ребёнок. Какие варианты?">Развод с ребёнком</button>
+      </div>`;
+    empty.querySelectorAll(".chip").forEach(ch => {
+      ch.addEventListener("click", () => {
+        question.value = ch.dataset.q;
+        question.focus();
+        autoGrow();
+      });
+    });
+    chatLog.appendChild(empty);
+    return;
+  }
+
+  history.forEach(m => addBubble(m.content, m.role, false));
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+function addBubble(text, role, scroll=true){
+  const el = document.createElement("div");
+  el.className = "bubble " + role;
+  if(role === "assistant") el.innerHTML = renderMarkdown(text);
+  else el.textContent = text;
+  chatLog.appendChild(el);
+  if(scroll) chatLog.scrollTop = chatLog.scrollHeight;
+  return el;
+}
+
+function buildSystemPrompt(){
+  const kb = branches.map(b => {
+    const cases = b.cases.map(c =>
+      `• ${c.title} — ${c.desc}\n  Нормы: ${c.laws.join("; ")}\n  Сроки: ${c.time}`
+    ).join("\n");
+    return `## ${b.title} (${b.law})\n${cases}`;
+  }).join("\n\n");
+
+  return SYSTEM_PROMPT +
+    "\n\nНиже — база знаний справочника. Используй её как опорную, но при необходимости дополняй действующими нормами:\n\n" + kb;
+}
+
+function autoGrow(){
+  question.style.height = "auto";
+  question.style.height = Math.min(question.scrollHeight, 200) + "px";
+}
+question.addEventListener("input", autoGrow);
+autoGrow();
+
+question.addEventListener("keydown", e => {
+  if(e.key === "Enter" && !e.shiftKey){
+    e.preventDefault();
+    chatForm.requestSubmit();
+  }
+});
+
+function setStreaming(on){
+  streaming = on;
+  sendBtn.disabled = on;
+  stopBtn.style.display = on ? "" : "none";
+}
+
+async function askOpenRouter(userText){
+  if(!OPENROUTER_KEY){
+    apiKeyNote.style.display = "";
+    addBubble(
+      "Ключ OpenRouter не задан. Открой исходник и вставь ключ в строку const OPENROUTER_KEY = \"\";",
+      "error"
+    );
+    return;
+  }
+
+  const messages = [
+    { role: "system", content: buildSystemPrompt() },
+    ...history.slice(-MAX_HISTORY).map(m => ({ role: m.role, content: m.content })),
+    { role: "user", content: userText }
+  ];
+
+  controller = new AbortController();
+  const timeoutId = setTimeout(() => controller?.abort(), REQUEST_TIMEOUT_MS);
+  setStreaming(true);
+
+  let bubble = addBubble("", "assistant");
+  let acc = "";
+  let lastError = null;
+
+  for(const m of MODELS){
+    try{
+      bubble.innerHTML = `<span class="spinner"></span><span class="small">Запрос к ${esc(m)}…</span>`;
+      const resp = await fetch(OPENROUTER_URL, {
+        method: "POST",
+        signal: controller.signal,
+        headers: {
+  "Authorization": "Bearer " + OPENROUTER_KEY,
+  "Content-Type": "application/json",
+  "HTTP-Referer": location.origin || "https://localhost",
+  "X-Title": "Pravovoy Gid"
+},
+        body: JSON.stringify({
+          model: m,
+          messages,
+          stream: true,
+          temperature: TEMPERATURE,
+          max_tokens: MAX_TOKENS
+        })
+      });
+
+      if(!resp.ok){
+        const txt = await resp.text().catch(() => "");
+        lastError = `HTTP ${resp.status}: ${txt.slice(0, 200)}`;
+        continue;
+      }
+      if(!resp.body){
+        lastError = "Пустой ответ, стриминг недоступен";
+        continue;
+      }
+
+      acc = "";
+      bubble.innerHTML = "";
+
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+
+      while(true){
+        const { value, done } = await reader.read();
+        if(done) break;
+        buf += decoder.decode(value, { stream: true });
+
+        const parts = buf.split("\n");
+        buf = parts.pop();
+
+        for(const line of parts){
+          const t = line.trim();
+          if(!t || !t.startsWith("data:")) continue;
+          const data = t.slice(5).trim();
+          if(data === "[DONE]") continue;
+          try{
+            const json = JSON.parse(data);
+            const delta = json.choices?.[0]?.delta?.content;
+            if(delta){
+              acc += delta;
+              bubble.innerHTML = renderMarkdown(acc) + '<span class="cursor"></span>';
+              chatLog.scrollTop = chatLog.scrollHeight;
+            }
+          }catch(_){}
+        }
+      }
+
+      clearTimeout(timeoutId);
+      bubble.innerHTML = renderMarkdown(acc);
+      history.push({ role: "user", content: userText });
+      history.push({ role: "assistant", content: acc });
+      saveHistory();
+      setStreaming(false);
+      controller = null;
+      return;
+    }catch(err){
+      clearTimeout(timeoutId);
+      if(err.name === "AbortError"){
+        bubble.innerHTML = renderMarkdown(acc || "_(запрос отменён)_");
+        if(acc){
+          history.push({ role: "user", content: userText });
+          history.push({ role: "assistant", content: acc });
+          saveHistory();
+        }
+        setStreaming(false);
+        controller = null;
+        return;
+      }
+      lastError = err.message || String(err);
+    }
+  }
+
+  clearTimeout(timeoutId);
+  bubble.className = "bubble error";
+  bubble.textContent = "Не удалось получить ответ. " + (lastError || "Все модели недоступны.") +
+    "\n\nПроверьте ключ OpenRouter, лимиты, ID моделей и подключение к сети. " +
+    "Если ошибка типа Failed to fetch — запрос блокируется CORS, нужен прокси-сервер.";
+  setStreaming(false);
+  controller = null;
+}
+
+chatForm.addEventListener("submit", e => {
+  e.preventDefault();
+  if(streaming) return;
+  const q = question.value.trim();
+  if(!q) return;
+  addBubble(q, "user");
+  question.value = "";
+  autoGrow();
+  askOpenRouter(q);
+});
+
+stopBtn.addEventListener("click", () => {
+  if(controller) controller.abort();
+});
+
+clearBtn.addEventListener("click", () => {
+  if(streaming && controller) controller.abort();
+  history = [];
+  saveHistory();
+  renderHistory();
+});
+
+function openChat(){
+  chatModal.classList.add("open");
+  lockScroll(true);
+  if(!OPENROUTER_KEY) apiKeyNote.style.display = "";
+  else apiKeyNote.style.display = "none";
+  setTimeout(() => question.focus(), 60);
+}
+$("#heroChat").addEventListener("click", openChat);
+$("#aboutChat").addEventListener("click", openChat);
+$("#navChat").addEventListener("click", e => { e.preventDefault(); openChat(); });
+$("#closeChat").addEventListener("click", () => closeModal(chatModal));
+chatModal.addEventListener("click", e => { if(e.target === chatModal) closeModal(chatModal); });
+
+const themeBtn = $("#themeToggle");
+const iMoon = themeBtn.querySelector(".i-moon");
+const iSun = themeBtn.querySelector(".i-sun");
+themeBtn.addEventListener("click", () => {
+  const root = document.documentElement;
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  iMoon.style.display = next === "dark" ? "none" : "block";
+  iSun.style.display  = next === "dark" ? "block" : "none";
+});
+
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape"){ closeModal(branchModal); closeModal(chatModal); }
+});
+
+loadHistory();
+if(!OPENROUTER_KEY) apiKeyNote.style.display = "";
+else apiKeyNote.style.display = "none";
+</script>
+</body>
+</html>
